@@ -8,7 +8,7 @@ export default function Faq(props: any) {
   const [activeIndex, setActiveIndex] = useState(0);
   const renderedQuestionsAnswers = props.faqs.map(
     (item: any, index: number) => {
-      console.log(props, "item");
+      // console.log(props, "item");
       const showDescription = index === activeIndex ? "current" : "hidden";
       const background = index === activeIndex ? "active" : "";
       const fontWeightBold =

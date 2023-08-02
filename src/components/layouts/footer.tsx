@@ -8,7 +8,7 @@ import jdgroup from "../../images/jd-group.png";
 
 const Footer = (props: any) => {
   const { footer } = props;
-  console.log(footer.c_footer_logo)
+  // console.log(footer.c_footer_logo)
   return (
     <>
       {props.isSmallScreen && (

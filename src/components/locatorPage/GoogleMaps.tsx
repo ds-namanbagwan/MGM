@@ -304,7 +304,7 @@ function UnwrappedGoogleMaps({
 
     markers1.current[i].addListener("mouseover", () => {
       if (hover) {
-        console.log('fdsf')
+        // console.log('fdsf')
         markers1.current[i].setIcon(Hovermap);
 
         addActiveGrid(i);

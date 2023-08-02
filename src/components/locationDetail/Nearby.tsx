@@ -10,6 +10,7 @@ import map_marker from "../../images/map-marker.svg";
 import constant from "../../constant";
 import { Coordinate } from "../../types/search/locations";
 import { Radius, apikey_for_entity } from "../../sites-global/global";
+import { formatPhoneNumber } from "react-phone-number-input";
 
 type NearbyAPIConfig = {
   endpoint: "https://liveapi.yext.com/v2/accounts/me/entities/geosearch";
@@ -175,9 +176,10 @@ export default function Nearby({
                     data-ya-track="phone"
                     eventName="phone" 
                     className="underline" 
-                    href={`tel:${location.mainPhone.replace("+44","0")}`}
+                    href={`tel:${location.mainPhone}`}
                     >
-                    {location.mainPhone.replace("+44","0")}</Link>
+                    {/* {location.mainPhone.replace("+44","0")} */}
+                    {location.mainPhone}</Link>
                   </div>
                 )}
 

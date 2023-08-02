@@ -2,7 +2,7 @@ import * as React from 'react'
 import {Image} from "@yext/pages/components";
 
 function TakeALook(props:any) {
-    console.log(props,"props")
+    // console.log(props,"props")
   return (<>
   <h2 className="text-center text-xxl pb-3">{props.c_branchHeading}</h2>
     <div className='block md:flex flex-row w-full gap-6'>
