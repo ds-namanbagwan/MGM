@@ -1,0 +1,38 @@
+{
+  "$id": "site-entity",
+  "filter": {
+    "entityIds": ["global-data"]
+  },
+  "source": "knowledgeGraph",
+  "fields": [
+      "name",
+      "c_bannerTitile",
+      "c_branchLocatorCTA",
+      "c_contactUs",
+      "c_ctaList",
+      "c_customerServicesLinks",
+      "c_footerDescription",
+      "c_footerLinks",
+      "c_footer_logo",
+      "c_getQuote",
+      "c_headerLink",
+      "c_jobListCTA",
+      "c_logo",
+      "c_menuSearchBarPlaceholderText",
+      "c_navigationLinks",
+      "c_paySecurelyIcon",
+      "c_policies",
+      "c_socialIcons",
+      "c_store_finder",
+      "menuUrl",
+      "photoGallery",
+      "c_canonical",
+      "c_meta_title",
+      "c_meta_description",
+      "c_meta_robots"
+  ],
+  "localization": {
+    "locales": ["en_GB"],
+    "primary": false
+  }
+}
