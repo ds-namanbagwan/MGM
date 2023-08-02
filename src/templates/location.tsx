@@ -557,7 +557,7 @@ const Location: Template<TemplateRenderProps> = ({
               baseUrl={relativePrefixToRoot}
               address={undefined}
             /> */}
-            {c_banner && c_bannerCta && (
+            {c_banner && c_bannerabout && c_bannerCta && (
               <Banner
                 data={undefined}
                 c_banner={c_banner}
