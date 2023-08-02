@@ -15,7 +15,7 @@ import {
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
-import PageLayout from "../components/layouts/PageLayout";
+// import PageLayout from "../components/layouts/PageLayout";
 import About from "../components/locationDetail/About";
 import CustomMap from "../components/locationDetail/CustomMap";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
@@ -557,14 +557,14 @@ const Location: Template<TemplateRenderProps> = ({
               baseUrl={relativePrefixToRoot}
               address={undefined}
             /> */}
-            {c_banner && c_bannerCta && (
+            {/* {c_banner && c_bannerCta && (
               <Banner
                 data={undefined}
                 c_banner={c_banner}
                 c_bannerCta={c_bannerCta}
                 c_bannerabout={c_bannerabout}
               />
-            )}
+            )} */}
             <div className="location-information">
               <Contact
                 address={address}

@@ -284,7 +284,7 @@ function UnwrappedGoogleMaps({
       Infowindow(i, locationResults[i]);
       scrollToRow(i);
       const currentZoom = map?.getZoom() || 17;
-      console.log("currentZoom", currentZoom);
+      // console.log("currentZoom", currentZoom);
 
       setTimeout(() => {
         // bounds.extend(position);

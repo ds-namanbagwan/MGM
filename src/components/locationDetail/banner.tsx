@@ -21,7 +21,7 @@ type Banner = {
 
 const Banner = (props: Banner) => {
   const { data, c_banner, c_bannerCta, c_bannerabout } = props;
-  console.log(props.c_bannerabout, "513532")
+  // console.log(props.c_bannerabout, "513532")
   // const [imageIsLoaded, setImageIsLoaded] = useState(false);
 
   //   useEffect(() => {

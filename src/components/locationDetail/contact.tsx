@@ -98,7 +98,7 @@ const Contact = (props: any) => {
                 className=" location-phn" 
                 href={`tel:${phone.replace('+44',"0")}`}
                 >
-                {phone}
+                {phone.replace('+44',"0")}
               </Link>
             </div>
           </div>
