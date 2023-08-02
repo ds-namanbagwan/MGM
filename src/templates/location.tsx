@@ -545,7 +545,7 @@ const Location: Template<TemplateRenderProps> = ({
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-          <PageLayout global={_site}>
+          {/* <PageLayout global={_site}> */}
             {/* <BreadCrumbs
               name={name}
               _site={_site}
@@ -692,7 +692,7 @@ const Location: Template<TemplateRenderProps> = ({
               </div>
             )}
             {/* <ChatBox/> */}
-          </PageLayout>
+          {/* </PageLayout> */}
         </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>
