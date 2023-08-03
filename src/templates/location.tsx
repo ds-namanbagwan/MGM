@@ -15,7 +15,7 @@ import {
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
-import PageLayout from "../components/layouts/PageLayout";
+// import PageLayout from "../components/layouts/PageLayout";
 import About from "../components/locationDetail/About";
 import CustomMap from "../components/locationDetail/CustomMap";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
@@ -38,8 +38,6 @@ import MeetOurTeam from "../components/locationDetail/MeetOurTeam";
 import FeaturesBrand from "../components/locationDetail/FeaturesBrand";
 import TakeALook from "../components/locationDetail/TakeALook";
 import AvailableItem from "../components/locationDetail/AvailableItem";
-import ChatBox from "../components/locationDetail/ChatBot";
-
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -94,7 +92,9 @@ export const config: TemplateConfig = {
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
       "dm_directoryParents.c_addressCountryDisplayName",
-      "c_aboutinfotest"
+      "c_aboutinfotest",
+      "c_autodatagenerate",
+      "c_bannerabout"
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {      
@@ -351,6 +351,8 @@ const Location: Template<TemplateRenderProps> = ({
     c_nearbyTitile,
     c_relatedfaq,
     c_viewmoreCta,
+    c_autodatagenerate,
+    c_bannerabout
     // c_aboutinfotest
     // dm_directoryParents,
   } = document;
@@ -555,11 +557,12 @@ const Location: Template<TemplateRenderProps> = ({
               baseUrl={relativePrefixToRoot}
               address={undefined}
             /> */}
-            {c_banner && c_bannerCta && (
+            {c_banner && c_bannerabout && c_bannerCta && (
               <Banner
                 data={undefined}
                 c_banner={c_banner}
                 c_bannerCta={c_bannerCta}
+                c_bannerabout={c_bannerabout}
               />
             )}
             <div className="location-information">
@@ -612,8 +615,10 @@ const Location: Template<TemplateRenderProps> = ({
             </div>
 
             {c_aboutInformation && (
-              <About c_aboutInformation={c_aboutInformation} />
+              <About c_aboutInformation={c_aboutInformation}  c_autodatagenerate={c_autodatagenerate} />
+              
             )}
+            
 
             {c_availableItems ? (
               <AvailableItem

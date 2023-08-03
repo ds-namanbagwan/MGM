@@ -10,7 +10,7 @@ function AvailableStock(props:any) {
         rtf=rtf.replace('-','');
         return rtf.replace(/\\'[0-9a-zA-Z]{2}/g, "").trim();
     }
-    console.log(props,"Available")
+    // console.log(props,"Available")
   return (
     <div className="available-stock">
       <div className="container-custom1">

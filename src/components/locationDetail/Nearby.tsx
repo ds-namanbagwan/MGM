@@ -121,7 +121,7 @@ export default function Nearby({
                                 <>
                                  <img src={map_marker} alt="" />
                                   <div className="">
-                                    {metersToMiles(e.distanceMiles)}{" "}
+                                    {metersToMiles(e?.distanceMiles)}{" "}
                                     <span className="">
                                       miles
                                     </span>

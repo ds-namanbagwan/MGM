@@ -90,7 +90,7 @@ export default function GoogleInput({
     ) || 0;
   const searchActions = useSearchActions();
   let numSections = 0;
-  console.log(inputValue, latestUserInput, filterRef.current);
+  // console.log(inputValue, latestUserInput, filterRef.current);
   const [focusedOptionId, setFocusedOptionId] = useState<string | undefined>(
     undefined
   );
@@ -241,7 +241,7 @@ export default function GoogleInput({
           function () {
             const searchKey: any = pacInput.value;
             const place = autoComplete.getPlace();
-            console.log(place,"placeplace")
+            // console.log(place,"placeplace")
             if (searchKey && place.address_components!=undefined) {
               getCoordinates(searchKey);
               // getGoogleInput(searchKey);
