@@ -816,7 +816,7 @@ nav[aria-label="Pagination"] button:disabled{@apply cursor-not-allowed text-opac
 .available-item h2{@apply text-center mt-12 mb-3 md:mb-6 text-left lg:block font-bold text-bg-gray1 text-2xl md:text-[3rem] font-second-font leading-[3rem]}
 .available-item ul.splide__list li{ @apply p-2; }
 .available-item .inner-stock{@apply flex  flex-col p-4 border h-full border-[#ccc] shadow-md}
-.available-item .inner-stock img{ @apply max-w-full sm:max-w-[322px] h-[250px] sm:h-[208px] object-cover}
+.available-item .inner-stock img{ @apply max-w-full sm:max-w-[322px] h-[250px] sm:h-[208px] hover:scale-105 object-cover}
 .available-item .inner-stock h3{ @apply mt-3 text-[22px] text-[#2D3846] font-second-font}
 .available-item .inner-stock p{ @apply text-base mt-2 min-h-[4.5rem] text-[#2D3846] font-main-font}
 .available-item .inner-stock ul{@apply flex flex-wrap my-4  inline-block w-full }

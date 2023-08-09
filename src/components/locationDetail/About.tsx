@@ -2,9 +2,7 @@ import * as React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import RtfConverter from "@yext/rtf-converter";
 import { useState } from "react";
-
 import { LexicalRichText } from "@yext/react-components";
-
 
 
 const ReadMore = ({ children }: any) => {
@@ -39,7 +37,6 @@ const ReadMore = ({ children }: any) => {
 };
 
 export default function About(props: any) {
-  // console.log(props, "57741")
   return (
     <div className="about-sec about-page">
       <div className="container-custom">
@@ -67,9 +64,7 @@ export default function About(props: any) {
                 {/* <LexicalRichText serializedAST={JSON?.stringify(props.c_aboutInformation.description1?.json)} /> */}
                 {/* </ReadMore>           */}
                 <h1>YEXT AI DATA GENERATE </h1>
-                {/* <ReadMore> */}
-                  {props?.c_autodatagenerate}
-                {/* </ReadMore> */}
+                {props?.c_autodatagenerate}
               </div>
             </div>
           </div>
