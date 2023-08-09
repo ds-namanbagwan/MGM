@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-self-assign */
 /* eslint-disable react/prop-types */
 import * as React from "react";
@@ -15,7 +16,7 @@ import {
   GetHeadConfig,
   HeadConfig,
 } from "@yext/pages";
-// import PageLayout from "../components/layouts/PageLayout";
+import PageLayout from "../components/layouts/PageLayout";
 import About from "../components/locationDetail/About";
 import CustomMap from "../components/locationDetail/CustomMap";
 import BreadCrumbs from "../components/layouts/Breadcrumb";
@@ -38,6 +39,7 @@ import MeetOurTeam from "../components/locationDetail/MeetOurTeam";
 import FeaturesBrand from "../components/locationDetail/FeaturesBrand";
 import TakeALook from "../components/locationDetail/TakeALook";
 import AvailableItem from "../components/locationDetail/AvailableItem";
+// import ChatBox from "../components/locationDetail/ChatBot";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -97,7 +99,7 @@ export const config: TemplateConfig = {
       "c_bannerabout"
     ],
     // Defines the scope of entities that qualify for this stream.
-    filter: {      
+    filter: {
       entityTypes: ["location"],
     },
     // The entity language profiles that documents will be generated for.
@@ -157,11 +159,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "description",
-          content: `${
-            document.c_meta_description
-              ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
-          }`,
+          content: `${document.c_meta_description
+            ? document.c_meta_description
+            : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+            }`,
         },
       },
 
@@ -187,11 +188,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "link",
         attributes: {
           rel: "canonical",
-          href: `${
-            document.c_canonical
-              ? document.c_canonical
-              : stagingBaseurl + "/" + constant.slugify(document.slug)
-          }`,
+          href: `${document.c_canonical
+            ? document.c_canonical
+            : stagingBaseurl + "/" + constant.slugify(document.slug)
+            }`,
         },
       },
 
@@ -199,11 +199,10 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           property: "og:description",
-          content: `${
-            document.c_meta_description
-              ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
-          }`,
+          content: `${document.c_meta_description
+            ? document.c_meta_description
+            : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+            }`,
         },
       },
       {
@@ -247,22 +246,20 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:url",
-          content: `${
-            document.c_canonical
-              ? document.c_canonical
-              : stagingBaseurl + "/" + constant.slugify(document.slug)
-          }`,
+          content: `${document.c_canonical
+            ? document.c_canonical
+            : stagingBaseurl + "/" + constant.slugify(document.slug)
+            }`,
         },
       },
       {
         type: "meta",
         attributes: {
           name: "twitter:description",
-          content: `${
-            document.c_meta_description
-              ? document.c_meta_description
-              : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
-          }`,
+          content: `${document.c_meta_description
+            ? document.c_meta_description
+            : `Find the ${document.name} Timber Store in ${document.address.city}. We stock high-quality, robust products at competitive rates.`
+            }`,
         },
       },
       {
@@ -274,7 +271,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
       },
       /// twitter tag
     ],
-    other : `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    other: `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     
@@ -359,8 +356,10 @@ const Location: Template<TemplateRenderProps> = ({
   const templateData = { document: document, __meta: __meta };
   const hoursSchema = [];
   const breadcrumbScheme = [];
-  for (var key in hours) {
+  for (const key in hours) {
+    // eslint-disable-next-line no-prototype-builtins
     if (hours.hasOwnProperty(key)) {
+      // eslint-disable-next-line @typescript-eslint/ban-types
       let openIntervalsSchema: Object = "";
       if (key !== "holidayHours") {
         if (hours[key].isClosed) {
@@ -373,7 +372,8 @@ const Location: Template<TemplateRenderProps> = ({
           let start = "";
           if (typeof hours[key].openIntervals != "undefined") {
             const openIntervals = hours[key].openIntervals;
-            for (var o in openIntervals) {
+            for (const o in openIntervals) {
+              // eslint-disable-next-line no-prototype-builtins
               if (openIntervals.hasOwnProperty(o)) {
                 end = openIntervals[o].end;
                 start = openIntervals[o].start;
@@ -470,8 +470,8 @@ const Location: Template<TemplateRenderProps> = ({
   });
   const imageurl = photoGallery
     ? photoGallery.map((element: any) => {
-        return element.image.url;
-      })
+      return element.image.url;
+    })
     : null;
 
   return (
@@ -493,9 +493,8 @@ const Location: Template<TemplateRenderProps> = ({
           description: description,
           image: imageurl,
           telephone: mainPhone,
-          url: `${c_canonical ? c_canonical : stagingBaseurl}/${
-            slug ? slug : `${name}`
-          }`,
+          url: `${c_canonical ? c_canonical : stagingBaseurl}/${slug ? slug : `${name}`
+            }`,
         }}
       />
       <noscript>
@@ -503,7 +502,7 @@ const Location: Template<TemplateRenderProps> = ({
           src="https://www.googletagmanager.com/ns.html?id=GTM-KQFDVCH"
           height="0"
           width="0"
-          style={{display:"none",visibility:"hidden"}}
+          style={{ display: "none", visibility: "hidden" }}
         ></iframe>
       </noscript>
       <JsonLd<BreadcrumbList>
@@ -547,8 +546,8 @@ const Location: Template<TemplateRenderProps> = ({
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-          {/* <PageLayout global={_site}> */}
-            {/* <BreadCrumbs
+          <PageLayout global={_site}>
+          {/* <BreadCrumbs
               name={name}
               _site={_site}
               parents={dm_directoryParents ? dm_directoryParents : false}
@@ -557,147 +556,137 @@ const Location: Template<TemplateRenderProps> = ({
               baseUrl={relativePrefixToRoot}
               address={undefined}
             /> */}
-            {c_banner && c_bannerabout && c_bannerCta && (
-              <Banner
-                data={undefined}
-                c_banner={c_banner}
-                c_bannerCta={c_bannerCta}
-                c_bannerabout={c_bannerabout}
-              />
-            )}
-            <div className="location-information">
-              <Contact
-                address={address}
-                phone={mainPhone}
-                name={name}
-                googlePlaceId={googlePlaceId}
-                email={emails && emails[0]}
-                c_facility={c_facility}
-                timezone={timezone}
-                latitude={
-                  yextDisplayCoordinate
-                    ? yextDisplayCoordinate.latitude
-                    : displayCoordinate?.latitude
+          {c_banner && c_bannerabout && c_bannerCta && (
+            <Banner
+              data={undefined}
+              c_banner={c_banner}
+              c_bannerCta={c_bannerCta}
+              c_bannerabout={c_bannerabout}
+            />
+          )}
+          <div className="location-information">
+            <Contact
+              address={address}
+              phone={mainPhone}
+              name={name}
+              googlePlaceId={googlePlaceId}
+              email={emails && emails[0]}
+              c_facility={c_facility}
+              timezone={timezone}
+              latitude={
+                yextDisplayCoordinate
+                  ? yextDisplayCoordinate.latitude
+                  : displayCoordinate?.latitude
                     ? displayCoordinate?.latitude
                     : cityCoordinate.latitude
-                }
-                yextDisplayCoordinate={yextDisplayCoordinate}
-                longitude={
-                  yextDisplayCoordinate
-                    ? yextDisplayCoordinate.longitude
-                    : displayCoordinate?.longitude
+              }
+              yextDisplayCoordinate={yextDisplayCoordinate}
+              longitude={
+                yextDisplayCoordinate
+                  ? yextDisplayCoordinate.longitude
+                  : displayCoordinate?.longitude
                     ? displayCoordinate.longitude
                     : cityCoordinate.longitude
-                }
-                hours={hours}
-              ></Contact>
-              {hours ? (
-                <div className="map-sec" id="map_canvas">
-                  <CustomMap
-                    prop={
-                      yextDisplayCoordinate
-                        ? yextDisplayCoordinate
-                        : displayCoordinate
-                    }
-                  />
-                </div>
-              ) : (
-                <div className="map-sec without-hours" id="map_canvas">
-                  <CustomMap
-                    prop={
-                      yextDisplayCoordinate
-                        ? yextDisplayCoordinate
-                        : displayCoordinate
-                    }
-                  />
-                </div>
-              )}
-            </div>
-
-            {c_aboutInformation && (
-              <About c_aboutInformation={c_aboutInformation}  c_autodatagenerate={c_autodatagenerate} />
-              
-            )}
-            
-
-            {c_availableItems ? (
-              <AvailableItem
-                c_availableItems={c_availableItems}
-                title={c_availableStockInformation.title}
-              />
+              }
+              hours={hours}
+            ></Contact>
+            {hours ? (
+              <div className="map-sec" id="map_canvas">
+                <CustomMap
+                  prop={
+                    yextDisplayCoordinate
+                      ? yextDisplayCoordinate
+                      : displayCoordinate
+                  }
+                />
+              </div>
             ) : (
-              ""
+              <div className="map-sec without-hours" id="map_canvas">
+                <CustomMap
+                  prop={
+                    yextDisplayCoordinate
+                      ? yextDisplayCoordinate
+                      : displayCoordinate
+                  }
+                />
+              </div>
             )}
-
-            {/* {c_availableStockInformation && (
+          </div>
+          {c_aboutInformation && (
+            <About c_aboutInformation={c_aboutInformation} c_autodatagenerate={c_autodatagenerate} />
+          )}
+          {c_availableItems ? (
+            <AvailableItem
+              c_availableItems={c_availableItems}
+              title={c_availableStockInformation.title} />
+          ) : (
+            ""
+          )}
+          {/* {c_availableStockInformation && (
               <AvailableStock
                 c_availableStockInformation={c_availableStockInformation}
               />
             )} */}
-
-            {c_meetOurTeamHeading && c_meetTeam && (
-              <MeetOurTeam
-                c_meetOurTeamHeading={c_meetOurTeamHeading}
-                c_meetTeam={c_meetTeam}
-              />
-            )}
-            {c_relatedfaq && (
-              <div className="faq-sec">
-                <div className="container-custom1">
-                  <Faq
-                    faqs={c_relatedfaq}
-                    c_faqHeading={c_faqHeading}
-                    c_readMoreCta={c_readMoreCta}
-                  />
-                </div>
+          {c_meetOurTeamHeading && c_meetTeam && (
+            <MeetOurTeam
+              c_meetOurTeamHeading={c_meetOurTeamHeading}
+              c_meetTeam={c_meetTeam} />
+          )}
+          {c_relatedfaq && (
+            <div className="faq-sec">
+              <div className="container-custom1">
+                <Faq
+                  faqs={c_relatedfaq}
+                  c_faqHeading={c_faqHeading}
+                  c_readMoreCta={c_readMoreCta} />
               </div>
-            )}
-            {(yextDisplayCoordinate || cityCoordinate || displayCoordinate) && (
-              <div className="nearby-sec">
-                <div className="container-custom1">
-                  <div className="sec-title">
-                    <h2 className="">
-                      {c_nearbyTitile
-                        ? c_nearbyTitile
-                        : StaticData.NearStoretext}
-                    </h2>
-                  </div>
-                  <Nearby
-                    apiKey={apikey_for_entity}
-                    coordinate={
-                      yextDisplayCoordinate
-                        ? yextDisplayCoordinate
-                        : displayCoordinate
-                    }
-                    id={id}
-                    c_viewmoreCta={c_viewmoreCta}
-                  />
+            </div>
+          )}
+          {(yextDisplayCoordinate || cityCoordinate || displayCoordinate) && (
+            <div className="nearby-sec">
+              <div className="container-custom1">
+                <div className="sec-title">
+                  <h2 className="">
+                    {c_nearbyTitile
+                      ? c_nearbyTitile
+                      : StaticData.NearStoretext}
+                  </h2>
                 </div>
+                <Nearby
+                  apiKey={apikey_for_entity}
+                  coordinate={
+                    yextDisplayCoordinate
+                      ? yextDisplayCoordinate
+                      : displayCoordinate
+                  }
+                  id={id}
+                  c_viewmoreCta={c_viewmoreCta}
+                />
               </div>
-            )}
-            {c_branchImage && (
-              <div className="gallery">
-                <div className="container-custom1">
-                  <TakeALook
-                    c_branchImage={c_branchImage}
-                    c_branchHeading={c_branchHeading}
-                  />
-                </div>
+            </div>
+          )}
+          {c_branchImage && (
+            <div className="gallery">
+              <div className="container-custom1">
+                <TakeALook
+                  c_branchImage={c_branchImage}
+                  c_branchHeading={c_branchHeading}
+                />
               </div>
-            )}
-
-            {c_featuredbrandSection && (
-              <div className="featuredBrand">
-                <div className="container-custom1">
-                  <FeaturesBrand
-                    c_featuredbrandSection={c_featuredbrandSection}
-                    name={c_featuredBrandTitle}
-                  />
-                </div>
+            </div>
+          )}
+          {c_featuredbrandSection && (
+            <div className="featuredBrand">
+              <div className="container-custom1">
+                <FeaturesBrand
+                  c_featuredbrandSection={c_featuredbrandSection}
+                  name={c_featuredBrandTitle}
+                />
               </div>
-            )}
-            {/* <ChatBox/> */}
-          {/* </PageLayout> */}
+            </div>
+          )}
+          {/* <ChatBox/> */}
+          </PageLayout>
         </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>
